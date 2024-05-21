@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--  script created by chat gpt 3.5 march 20th 2024 :) 
+    I asked it to create a button that constantly moves
+    away from the mouse cursor ~~~   -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Button</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #movingButton {
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="movingButton">Click here to keep<br>an idiot busy for hours!</button>
+
+    <script>
+        $(document).ready(function () {
+            var $button = $('#movingButton');
+            var $window = $(window);
+            var start_x = $window.width() / 2;
+            var start_y = $window.height() / 2;
+            var speed = 100;
+            var mouseNearThreshold = 100;
+            var interval = 50;
+
+            $button.css({
+                left: start_x + 'px',
+                top: start_y + 'px'
+            });
+
+            $button.on('mousemove', function (event) {
+                var x = event.clientX;
+                var y = event.clientY;
+                var buttonOffset = $button.offset();
+                var x0 = buttonOffset.left;
+                var y0 = buttonOffset.top;
+                var dx = x - x0;
+                var dy = y - y0;
+
+                // Calculate the distance between the mouse and the button center
+                var dist = Math.sqrt(dx ** 2 + dy ** 2);
+
+                if (dist < mouseNearThreshold) {
+                    // Move button randomly if the mouse is near
+                    var randomAngle = Math.random() * 2 * Math.PI;
+                    dx = Math.cos(randomAngle) * speed;
+                    dy = Math.sin(randomAngle) * speed;
+                } else {
+                    // Move button back to center if the mouse is far
+                    var dist_x = start_x - x0;
+                    var dist_y = start_y - y0;
+                    var centerDist = Math.sqrt(dist_x ** 2 + dist_y ** 2);
+
+                    if (centerDist > 0) {
+                        dx = (dist_x / centerDist) * speed;
+                        dy = (dist_y / centerDist) * speed;
+                    }
+                }
+
+                var newLeft = x0 + dx;
+                var newTop = y0 + dy;
+
+                // Ensure the button stays within window bounds
+                newLeft = Math.max(0, Math.min($window.width() - $button.outerWidth(), newLeft));
+                newTop = Math.max(0, Math.min($window.height() - $button.outerHeight(), newTop));
+
+                $button.css({
+                    left: newLeft + 'px',
+                    top: newTop + 'px'
+                });
+            });
+
+            $button.on('click', function (event) {
+                event.preventDefault();
+                return false;
+            });
+
+            function moveButtonToCenter() {
+                var buttonOffset = $button.offset();
+                var x0 = buttonOffset.left;
+                var y0 = buttonOffset.top;
+                var dist_x = start_x - x0;
+                var dist_y = start_y - y0;
+                var dist = Math.sqrt(dist_x ** 2 + dist_y ** 2);
+
+                if (dist > 1) {
+                    var dx = (dist_x / dist) * (speed / 10);
+                    var dy = (dist_y / dist) * (speed / 10);
+
+                    var newLeft = x0 + dx;
+                    var newTop = y0 + dy;
+
+                    // Ensure the button stays within window bounds
+                    newLeft = Math.max(0, Math.min($window.width() - $button.outerWidth(), newLeft));
+                    newTop = Math.max(0, Math.min($window.height() - $button.outerHeight(), newTop));
+
+                    $button.css({
+                        left: newLeft + 'px',
+                        top: newTop + 'px'
+                    });
+                }
+            }
+
+            setInterval(moveButtonToCenter, interval);
+        });
+    </script>
+</body>
+</html>
