@@ -1,0 +1,11 @@
+body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  width: 200px;
+  height: 50px;
+}
