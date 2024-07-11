@@ -1,4 +1,4 @@
-# Button Created by Open AI Chat GPT
+# Unclickable Button Created using Chat GPT
 button.html - open in a browser to check out this implementation of a very high speed button using javascript.
 
 I also created a version that can be used in a microsoft excel spreadsheet, just for fun. 
