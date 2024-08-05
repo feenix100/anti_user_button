@@ -2,7 +2,7 @@
 
 ### Overview
 
-This project showcases an innovative implementation of an unclickable button using various programming languages, with the assistance of ChatGPT 3.5.
+This project showcases an innovative implementation of an unclickable button using various programming languages, this code was created with the assistance of ChatGPT 3.5.
 
 ### Demo
 
@@ -19,8 +19,8 @@ The Python script displays a button in a window that continuously moves away, ma
 
 ### Development Journey
 
-I spent a few hours collaborating with ChatGPT, iterating through multiple versions before finalizing the script. After generating the Python script, I used ChatGPT to rewrite it in HTML/JavaScript and several other languages.
-The code was generated with the help of ChatGPT 3.5 - 2024.
+I spent a few hours collaborating with ChatGPT, iterating through multiple versions before finalizing the script. After generating the Python script, I used ChatGPT to rewrite it in HTML/JavaScript and several other languages. Rewriting the code in other programming languages only took a few minutes.
+The code was generated with the help of ChatGPT 3.5 -Free Version - 2024.
 
 ---
 
