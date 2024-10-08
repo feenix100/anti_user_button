@@ -1,8 +1,8 @@
-# Unclickable Button Created Using ChatGPT
+# The Anti-User Button
 
 ### Overview
 
-This project showcases an innovative implementation of an unclickable button using various programming languages, this code was created with the assistance of ChatGPT 3.5.
+This project showcases an innovative implementation of a button that moves away from the cursor constantly, using various programming languages, this code was created with the assistance of ChatGPT 3.5.
 
 ### Demo
 
