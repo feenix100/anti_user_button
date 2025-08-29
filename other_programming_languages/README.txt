@@ -1,1 +1,0 @@
-These are code snippets that should create a button that can not be clicked on by the user. Each is for a different programming language.
